@@ -188,7 +188,7 @@ def ask_assistant(thread_id: str, user_text: str, lang: str = "ru") -> str:
     run = client.beta.threads.runs.create(
         thread_id=thread_id,
         assistant_id=ASSISTANT_ID,
-        instructions=lang_instruction(lang),
+        additional_instructions=lang_instruction(lang),
     )
 
     status = wait_for_run(thread_id, run.id, timeout_sec=120)
